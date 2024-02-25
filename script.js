@@ -17,10 +17,10 @@ function saveState(list) {
 function initList() {
   // load state
   listState = loadState();
-  //render list
+  // render list
   const ul = document.getElementById("list");
   for (const item of listState) {
-    const li = document.getElementById("li");
+    const li = document.createElement("li");
     li.innerText = item.text;
 
     const deleteButton = document.createElement("span");
@@ -87,7 +87,7 @@ function deleteItem(e) {
   listState = listState.filter((_, i) => i !== idx);
   parent.removeChild(item);
   saveState(listState);
-  e.stopPeopagation();
+  e.stopPropagation();
 }
 
 initList();
